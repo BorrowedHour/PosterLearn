@@ -31,7 +31,7 @@ genreMap['Game-Show'] = 25
 genreMap['Sport'] = 26
 genreMap['Biography'] = 27
 
-totalMoviesToProcess = 5
+totalMoviesToProcess = 1000
 
 def normalize(pixel):
     return str(pixel)

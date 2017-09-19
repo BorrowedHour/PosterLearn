@@ -148,8 +148,8 @@ def train_nn_classification_model(
         training_predictions = list(classifier.predict_proba(input_fn=predict_training_input_fn))
         validation_predictions = list(classifier.predict_proba(input_fn=predict_validation_input_fn))
         # Compute training and validation errors.
-        training_log_loss = metrics.log_loss(training_targets, training_predictions)
-        validation_log_loss = metrics.log_loss(validation_targets, validation_predictions)
+        training_log_loss = metrics.log_loss(training_targets, training_predictions,labels=range(0,28))
+        validation_log_loss = metrics.log_loss(validation_targets, validation_predictions,labels=range(0,28))
         # Occasionally print the current loss.
         print "  period %02d : %0.2f" % (period, validation_log_loss)
         # Add the loss metrics from this period to our list.
