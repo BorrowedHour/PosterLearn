@@ -31,6 +31,9 @@ genreMap['Game-Show'] = 25
 genreMap['Sport'] = 26
 genreMap['Biography'] = 27
 
+def normalize(pixel):
+    p = pixel / 255.0
+    return str(round(p,1))
 
 def processPoster(count, name, posterId, genres, file):
     try:
@@ -46,7 +49,7 @@ def processPoster(count, name, posterId, genres, file):
                 file.write(str(genreMap[g]) + ",")
                 for a in range(x):
                     for b in range(y):
-                        file.write(str(pix[a,b][0]) + "," + str(pix[a,b][1]) + "," + str(pix[a,b][2]) + ",")
+                        file.write(normalize(pix[a,b][0]) + "," + normalize(pix[a,b][1]) + "," + normalize(pix[a,b][2]) + ",")
 
             file.flush()
         else:
