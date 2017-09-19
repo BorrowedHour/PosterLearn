@@ -31,9 +31,10 @@ genreMap['Game-Show'] = 25
 genreMap['Sport'] = 26
 genreMap['Biography'] = 27
 
+totalMoviesToProcess = 5
+
 def normalize(pixel):
-    p = pixel / 255.0
-    return str(round(p,1))
+    return str(pixel)
 
 def processPoster(count, name, posterId, genres, file):
     try:
@@ -66,7 +67,7 @@ def processPosters():
     for row in reader:
         count = count + 1
         processPoster(count, row[2], row[0], row[4], outputFile)
-        if count == 1000:
+        if count == totalMoviesToProcess:
             break
     f.close()
     outputFile.close()
