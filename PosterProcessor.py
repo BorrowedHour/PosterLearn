@@ -63,6 +63,8 @@ def processPosters():
     for row in reader:
         count = count + 1
         processPoster(count, row[2], row[0], row[4], outputFile)
+        if count == 1000:
+            break
     f.close()
     outputFile.close()
 
